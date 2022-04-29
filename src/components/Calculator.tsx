@@ -82,10 +82,20 @@ function reducer(state: State, { type, payload }: Action) {
         ).toString(),
       };
     case "SIN":
+      console.log(parseFloat(state.previousValue || ""));
       return {
         ...state,
         overwrite: true,
         previousValue: Math.asin(
+          parseFloat(state.previousValue || "")
+        ).toString(),
+      };
+
+    case "TAN":
+      return {
+        ...state,
+        overwrite: true,
+        previousValue: Math.atan(
           parseFloat(state.previousValue || "")
         ).toString(),
       };
